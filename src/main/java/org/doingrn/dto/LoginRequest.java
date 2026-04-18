@@ -1,6 +1,6 @@
 package org.doingrn.dto;
 
-public class LoginRequest {
+public class LoginRequest{
     private String email;
     private String password;
     private String user;

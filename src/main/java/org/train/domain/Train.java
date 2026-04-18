@@ -1,15 +1,15 @@
-package org.example.domain;
+package org.train.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 
-@Setter
 @Getter
-@Data
+@Setter
+@Log4j2
 @AllArgsConstructor
-public class Main {
+public class Train {
     private Long id;
     private String name;
 }

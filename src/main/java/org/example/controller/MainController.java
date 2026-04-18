@@ -3,6 +3,7 @@ package org.example.controller;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.example.domain.Main;
+import org.example.service.MainService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +17,14 @@ import java.util.List;
 @Log4j2
 @AllArgsConstructor
 public class MainController{
-    private DateUtil dateUtil;
+    private final DateUtil dateUtil;
+    private final MainService mainService;
+
+
     @GetMapping(path = "list")
+
     public List<Main> list(){
-        return List.of(new Main("Lucas"), new Main("Stein"), new Main(dateUtil.formatDateTimeToDatabaseStyle(LocalDateTime.now())));
+        log.info(dateUtil.formatDateTimeToDatabaseStyle(LocalDateTime.now()));
+        return mainService.listAll();
     }
 }
